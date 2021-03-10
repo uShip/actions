@@ -17,30 +17,31 @@ async function run() {
       timeStyle: "long",
       timeZone: "America/Chicago",
     } as any).format(new Date());
+
     const output = `
-    ## Terraform Output
-    | cmd | result |
-    |----|----|
-    | \`fmt -check\` |  ${fmtStep?.outcome == "success" ? "✔" : "✖"}   |
-    | \`init\` |  ${initStep?.outcome == "success" ? "✔" : "✖"}   |
-    | \`plan\` |  ${planStep?.outcome == "success" ? "✔" : "✖"}   |
+## Terraform Output
+| cmd | result |
+|----|----|
+| \`fmt -check\` |  ${fmtStep?.outcome == "success" ? "✔" : "✖"}   |
+| \`init\` |  ${initStep?.outcome == "success" ? "✔" : "✖"}   |
+| \`plan\` |  ${planStep?.outcome == "success" ? "✔" : "✖"}   |
 
-    <details><summary><b>Plan Output</b></summary>
+<details><summary><b>Plan Output</b></summary>
 
-    \`\`\`${planStep?.outputs.stdout}\`\`\`
+\`\`\`${planStep?.outputs.stdout}\`\`\`
 
-    stderr:
-    \`\`\`
-    ${(planStep?.outputs.stderr || "No Error").trim()}
-    \`\`\`
-    </details>
+stderr:
+\`\`\`
+${(planStep?.outputs.stderr || "No Error").trim()}
+\`\`\`
+</details>
 
-    *Pusher: @${process.env.GITHUB_ACTOR}, Action: \`${
+*Pusher: @${process.env.GITHUB_ACTOR}, Action: \`${
       process.env.GITHUB_EVENT_NAME
     }\`, Workflow: \`${process.env.GITHUB_WORKFLOW}\`*;
 
-    --------------
-    <sup>Last Updated: ${now}</sup>`;
+--------------
+<sup>Last Updated: ${now}</sup>`;
 
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
     const id = parseInt(getInput("pr-id", { required: true }), 10);
