@@ -3,8 +3,7 @@ description: Takes in terraform command outputs and status and outputs a pretty 
 inputs:
   steps:
     description: "The steps object from context"
-    default: ${{ toJSON(steps) }}
-    required: false
+    required: true
   fmt:
     description: "The step id of the init step"
     required: false

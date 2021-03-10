@@ -13,3 +13,5 @@ jobs:
         run: exit 1
 
       - uses: ./terraform-output
+        with:
+          steps: ${{ toJSON(steps) }}
