@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/uShip/actions#readme",
   "workspaces": [
-    "example-action"
+    "example-action",
+    "terraform-output"
   ],
   "husky": {
     "hooks": {
