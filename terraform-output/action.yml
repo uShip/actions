@@ -13,6 +13,10 @@ inputs:
   plan:
     description: "The step id of the plan step"
     required: false
+  context:
+    description: "Action context"
+    default: ${{ toJSON(context) }}
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

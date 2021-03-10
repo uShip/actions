@@ -2,7 +2,7 @@ import { getInput, setFailed } from "@actions/core";
 
 async function run() {
   try {
-    const env = process.env;
+    console.log(getInput("context"));
     const steps = JSON.parse(getInput("steps", { required: true }));
 
     const fmtStep = steps[getInput("fmt")];
@@ -20,7 +20,7 @@ async function run() {
     |----|----|
     | \`fmt -check\` |  ${fmtStep?.outcome == "success" ? "✔" : "✖"}   |
     | \`init\` |  ${initStep?.outcome == "success" ? "✔" : "✖"}   |
-    | \`plan\` |  ${planStep?.outcome == "success" ? "✔" : "✖"} }   |
+    | \`plan\` |  ${planStep?.outcome == "success" ? "✔" : "✖"}   |
 
     <details><summary><b>Plan Output</b></summary>
 

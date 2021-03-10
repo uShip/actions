@@ -12,7 +12,12 @@ jobs:
         continue-on-error: true
         run: exit 1
 
+      - id: test-success
+        continue-on-error: true
+        run: exit 0
+
       - uses: ./terraform-output
         with:
           steps: ${{ toJSON(steps) }}
           init: test-fail
+          plan: test-success
