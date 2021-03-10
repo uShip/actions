@@ -1,0 +1,8 @@
+name: 'Example Action'
+description: 'An example Action'
+outputs:
+  affirmation:
+    description: "A random affirmation. You got this!"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

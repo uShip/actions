@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "git-tag",
+    "conventional-commits",
+    "released"
+  ],
+  "owner": "uShip",
+  "repo": "actions",
+  "name": "DevOps",
+  "email": "devops@uship.com"
+}

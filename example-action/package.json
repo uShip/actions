@@ -1,0 +1,12 @@
+{
+  "name": "example-action",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "private": true,
+  "author": "uShip",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "got": "^11.8.2"
+  }
+}
