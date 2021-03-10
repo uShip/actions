@@ -18,13 +18,29 @@ async function run() {
       timeZone: "America/Chicago",
     } as any).format(new Date());
 
+    let stepTable = `
+| cmd | result |
+|----|----|`;
+
+    if (fmtStep) {
+      stepTable += `\n| \`fmt -check\` |  ${
+        fmtStep?.outcome == "success" ? "✔" : "✖"
+      }   |`;
+    }
+    if (initStep) {
+      stepTable += `\n| \`init\` |  ${
+        initStep?.outcome == "success" ? "✔" : "✖"
+      }   |`;
+    }
+    if (planStep) {
+      stepTable += `\n| \`plan\` |  ${
+        planStep?.outcome == "success" ? "✔" : "✖"
+      }   |`;
+    }
+
     const output = `
 ## Terraform Output
-| cmd | result |
-|----|----|
-| \`fmt -check\` |  ${fmtStep?.outcome == "success" ? "✔" : "✖"}   |
-| \`init\` |  ${initStep?.outcome == "success" ? "✔" : "✖"}   |
-| \`plan\` |  ${planStep?.outcome == "success" ? "✔" : "✖"}   |
+${stepTable}
 
 <details><summary><b>Plan Output</b></summary>
 
