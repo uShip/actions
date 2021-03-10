@@ -1,0 +1,19 @@
+name: Terraform Output
+description: Takes in terraform command outputs and status and outputs a pretty summary
+inputs:
+  steps:
+    description: "The steps object from context"
+    default: ${{ toJSON(steps) }}
+    required: false
+  fmt:
+    description: "The step id of the init step"
+    required: false
+  init:
+    description: "The step id of the init step"
+    required: true
+  plan:
+    description: "The step id of the plan step"
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
