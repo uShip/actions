@@ -15,7 +15,7 @@ inputs:
     required: false
   pr-id:
     description: Current PR's ID
-    default: ${{ github.event.issue.number }}
+    default: ${{ github.event.number }}
     required: true
   token:
     description: The GitHub token
