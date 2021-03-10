@@ -1,4 +1,4 @@
-import core from "@actions/core";
+import { setOutput, setFailed } from "@actions/core";
 import got from "got";
 
 async function run() {
@@ -9,9 +9,9 @@ async function run() {
       responseType: "json",
     });
     console.log("Received Affirmation:", affirmation);
-    core.setOutput("affirmation", affirmation);
+    setOutput("affirmation", affirmation);
   } catch (e) {
-    core.setFailed(e);
+    setFailed(e);
   }
 }
 
