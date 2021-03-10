@@ -13,9 +13,13 @@ inputs:
   plan:
     description: "The step id of the plan step"
     required: false
-  context:
-    description: "Action context"
-    default: ${{ toJSON(context) }}
+  pr-id:
+    description: Current PR's ID
+    default: ${{ github.event.issue.number }}
+    required: true
+  token:
+    description: The GitHub token
+    default: ${{ github.token }}
     required: true
 runs:
   using: 'node12'

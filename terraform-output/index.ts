@@ -1,8 +1,11 @@
 import { getInput, setFailed } from "@actions/core";
+import * as github from "@actions/github";
 
 async function run() {
   try {
-    console.log(getInput("context"));
+    const token = getInput("token", { required: true });
+    const octokit = github.getOctokit(token);
+
     const steps = JSON.parse(getInput("steps", { required: true }));
 
     const fmtStep = steps[getInput("fmt")];
@@ -15,7 +18,7 @@ async function run() {
       timeZone: "America/Chicago",
     } as any).format(new Date());
     const output = `
-    ## Terraform Plan
+    ## Terraform Output
     | cmd | result |
     |----|----|
     | \`fmt -check\` |  ${fmtStep?.outcome == "success" ? "✔" : "✖"}   |
@@ -38,7 +41,38 @@ async function run() {
 
     --------------
     <sup>Last Updated: ${now}</sup>`;
-    console.log(output);
+
+    const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
+    const id = parseInt(getInput("pr-id", { required: true }), 10);
+
+    const { data: comments } = await octokit.issues.listComments({
+      issue_number: id,
+      owner,
+      repo,
+    });
+
+    const comment = comments.find((comment) => {
+      return (
+        comment.body?.includes("Terraform Output") &&
+        comment.body?.includes("Last Updated")
+      );
+    });
+
+    if (comment) {
+      octokit.issues.updateComment({
+        owner,
+        repo,
+        comment_id: comment.id,
+        body: output,
+      });
+    } else {
+      octokit.issues.createComment({
+        issue_number: id,
+        owner,
+        repo,
+        body: output,
+      });
+    }
   } catch (e) {
     setFailed(e);
   }
