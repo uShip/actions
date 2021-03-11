@@ -44,7 +44,7 @@ ${stepTable}
 
 <details><summary><b>Plan Output</b></summary>
 
-\`\`\`${planStep?.outputs.stdout}\`\`\`
+\`\`\`${planStep?.outputs.stdout || "\n"}\`\`\`
 
 stderr:
 \`\`\`
