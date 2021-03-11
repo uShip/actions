@@ -17,7 +17,7 @@ async function run() {
       ["plan", planStep],
     ]);
 
-    const now = new Intl.DateTimeFormat("en", {
+    const now = new Intl.DateTimeFormat("en-US", {
       dateStyle: "medium",
       timeStyle: "long",
       timeZone: "America/Chicago",
@@ -59,7 +59,7 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
 <sup>Last Updated: ${now}</sup>`;
 
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
-    const id = parseInt(getInput("pr-id", { required: true }), 10);
+    const id = Number.parseInt(getInput("pr-id", { required: true }), 10);
 
     const { data: comments } = await octokit.issues.listComments({
       issue_number: id,
@@ -90,7 +90,7 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
       });
     }
 
-    if (getInput("fail-on-error") === "true") {
+    if (getInput("fail-on-error").toLowerCase() === "true") {
       tfSteps.forEach((result, name) => {
         if (result && result.outcome === "failure") {
           setFailed(
