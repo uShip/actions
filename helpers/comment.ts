@@ -9,7 +9,7 @@ interface PRCommentOptions {
   body: string;
 }
 
-export async function setPRComment({
+export async function createOrUpdatePRComment({
   owner,
   repo,
   prId,

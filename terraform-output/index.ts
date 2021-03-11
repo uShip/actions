@@ -1,6 +1,6 @@
 import { getInput, setFailed } from "@actions/core";
 import { getOctokit } from "@actions/github";
-import { setPRComment } from "../helpers/comment";
+import { createOrUpdatePRComment } from "@uship/actions-helpers/comment";
 
 async function run() {
   try {
@@ -62,7 +62,7 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
     const prId = Number.parseInt(getInput("pr-id", { required: true }), 10);
 
-    await setPRComment({
+    await createOrUpdatePRComment({
       owner,
       repo,
       prId,

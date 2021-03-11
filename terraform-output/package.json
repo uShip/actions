@@ -1,7 +1,6 @@
 {
   "name": "terraform-output",
   "version": "1.0.0",
-  "main": "index.ts",
   "private": true,
   "author": "uShip",
   "license": "ISC",
