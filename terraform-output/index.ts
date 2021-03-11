@@ -90,13 +90,15 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
       });
     }
 
-    tfSteps.forEach((result, name) => {
-      if (result && result.outcome === "failed") {
-        setFailed(
-          `Terraform step "${name}" failed. Err: ${result.output.stderr}`
-        );
-      }
-    });
+    if (getInput("fail-on-error") === "true") {
+      tfSteps.forEach((result, name) => {
+        if (result && result.outcome === "failure") {
+          setFailed(
+            `Terraform step "${name}" failed. Err: ${result.output.stderr}`
+          );
+        }
+      });
+    }
   } catch (e) {
     setFailed(e);
   }
