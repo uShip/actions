@@ -94,7 +94,7 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
       tfSteps.forEach((result, name) => {
         if (result && result.outcome === "failure") {
           setFailed(
-            `Terraform step "${name}" failed. Err: ${result.output.stderr}`
+            `Terraform step "${name}" failed. Err: ${result.outputs.stderr}`
           );
         }
       });
