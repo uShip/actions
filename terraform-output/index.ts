@@ -1,10 +1,11 @@
 import { getInput, setFailed } from "@actions/core";
-import * as github from "@actions/github";
+import { getOctokit } from "@actions/github";
+import { setPRComment } from "../helpers/comment";
 
 async function run() {
   try {
     const token = getInput("token", { required: true });
-    const octokit = github.getOctokit(token);
+    const octokit = getOctokit(token);
 
     const steps = JSON.parse(getInput("steps", { required: true }));
 
@@ -37,7 +38,7 @@ async function run() {
       }   |`;
     }
 
-    const output = `
+    const body = `
 ## Terraform Output
 ${stepTable}
 
@@ -59,36 +60,16 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
 <sup>Last Updated: ${now}</sup>`;
 
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
-    const id = Number.parseInt(getInput("pr-id", { required: true }), 10);
+    const prId = Number.parseInt(getInput("pr-id", { required: true }), 10);
 
-    const { data: comments } = await octokit.issues.listComments({
-      issue_number: id,
+    await setPRComment({
       owner,
       repo,
+      prId,
+      context: "terraform-output",
+      body,
+      octokit,
     });
-
-    const comment = comments.find((comment) => {
-      return (
-        comment.body?.includes("Terraform Output") &&
-        comment.body?.includes("Last Updated")
-      );
-    });
-
-    if (comment) {
-      octokit.issues.updateComment({
-        owner,
-        repo,
-        comment_id: comment.id,
-        body: output,
-      });
-    } else {
-      octokit.issues.createComment({
-        issue_number: id,
-        owner,
-        repo,
-        body: output,
-      });
-    }
 
     if (getInput("fail-on-error").toLowerCase() === "true") {
       tfSteps.forEach((result, name) => {
