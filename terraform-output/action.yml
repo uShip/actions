@@ -10,6 +10,9 @@ inputs:
   init:
     description: "The step id of the init step"
     required: true
+  validate:
+    description: "The step id of the validate step"
+    required: false
   plan:
     description: "The step id of the plan step"
     required: false
@@ -21,6 +24,10 @@ inputs:
     description: The GitHub token
     default: ${{ github.token }}
     required: true
+  fail-on-error:
+    description: "Wether or not to fail on a previous step's failure"
+    default: "true"
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'

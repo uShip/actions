@@ -8,9 +8,14 @@ async function run() {
 
     const steps = JSON.parse(getInput("steps", { required: true }));
 
-    const fmtStep = steps[getInput("fmt")];
-    const initStep = steps[getInput("init")];
-    const planStep = steps[getInput("plan")];
+    const planStep = steps[getInput("plan") || "plan"];
+
+    const tfSteps = new Map([
+      ["fmt -check", steps[getInput("fmt") || "fmt"]],
+      ["init", steps[getInput("init") || "init"]],
+      ["validate", steps[getInput("validate") || "validate"]],
+      ["plan", planStep],
+    ]);
 
     const now = new Intl.DateTimeFormat("en", {
       dateStyle: "medium",
@@ -22,19 +27,13 @@ async function run() {
 | cmd | result |
 |----|----|`;
 
-    if (fmtStep) {
-      stepTable += `\n| \`fmt -check\` |  ${
-        fmtStep?.outcome == "success" ? "✔" : "✖"
-      }   |`;
-    }
-    if (initStep) {
-      stepTable += `\n| \`init\` |  ${
-        initStep?.outcome == "success" ? "✔" : "✖"
-      }   |`;
-    }
-    if (planStep) {
-      stepTable += `\n| \`plan\` |  ${
-        planStep?.outcome == "success" ? "✔" : "✖"
+    for (const [name, result] of tfSteps) {
+      if (!result) {
+        continue;
+      }
+
+      stepTable += `\n| \`${name}\` |  ${
+        result?.outcome == "success" ? "✔" : "✖"
       }   |`;
     }
 
@@ -90,6 +89,14 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
         body: output,
       });
     }
+
+    tfSteps.forEach((result, name) => {
+      if (result && result.outcome === "failed") {
+        setFailed(
+          `Terraform step "${name}" failed. Err: ${result.output.stderr}`
+        );
+      }
+    });
   } catch (e) {
     setFailed(e);
   }
