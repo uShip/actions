@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx auto pr-check
+          npx auto pr-check --url https://github.com/uShip/actions/actions/runs/${{ github.run_id }}
