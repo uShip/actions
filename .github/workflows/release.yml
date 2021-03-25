@@ -27,10 +27,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx auto shipit
-
-      - name: Post Version
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npx auto comment -e --context auto-version --message "Version change once this PR is merged: $(auto version)"
