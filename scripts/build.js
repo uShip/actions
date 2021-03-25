@@ -21,7 +21,7 @@ import execa from "execa";
       }
     }
 
-    const { code, map, assets } = await ncc(join(actionDir, packageJson.main), {
+    const { code, map, assets } = await ncc(indexFile, {
       filterAssetBase: actionDir,
       minify: true,
       sourceMap: true,
