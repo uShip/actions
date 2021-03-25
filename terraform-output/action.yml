@@ -1,0 +1,40 @@
+name: Terraform Output
+description: Takes in terraform command outputs and status and outputs a pretty summary
+branding:
+  icon: aperture
+  color: blue
+inputs:
+  steps:
+    description: The steps object from github workflow context
+    required: true
+  fmt:
+    description: The step id of the format step
+    default: fmt
+    required: false
+  init:
+    description: The step id of the init step
+    default: init
+    required: true
+  validate:
+    description: The step id of the validate step
+    default: validate
+    required: false
+  plan:
+    description: The step id of the plan step
+    default: plan
+    required: false
+  pr-id:
+    description: Current PR's ID
+    default: ${{ github.event.number }}
+    required: true
+  token:
+    description: The GitHub token
+    default: ${{ github.token }}
+    required: true
+  fail-on-error:
+    description: Whether or not to fail on a previous step's failure
+    default: "true"
+    required: false
+runs:
+  using: node12
+  main: dist/index.js

@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/uShip/actions#readme",
   "workspaces": [
-    "example-action"
+    "example-action",
+    "terraform-output",
+    "helpers"
   ],
   "husky": {
     "hooks": {
@@ -35,6 +37,7 @@
     "@auto-it/conventional-commits": "^10.18.4",
     "@auto-it/git-tag": "^10.18.4",
     "@auto-it/released": "^10.18.4",
+    "@types/node": "^14.14.33",
     "@vercel/ncc": "^0.27.0",
     "auto": "^10.18.4",
     "esm": "^3.2.25",

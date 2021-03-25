@@ -1,2 +1,7 @@
-# actions
-A home for commonly re-used GitHub Actions
+# uShip Actions
+
+This repository contains shared uShip GitHub Actions.
+
+## Available Actions
+
+* [Terraform Output Action](terraform-output/README.md)
