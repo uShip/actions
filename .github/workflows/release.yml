@@ -28,9 +28,9 @@ jobs:
         run: |
           npx auto shipit
 
-      - name: Check Release
+      - name: Post Version
         if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx auto pr-check --url https://github.com/uShip/actions/actions/runs/${{ github.run_id }}
+          npx auto comment -e --context auto-version --message "Version change once this PR is merged: $(auto version)"
