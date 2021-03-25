@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   release:
@@ -19,8 +20,17 @@ jobs:
           node-version: 14.x
       - run: npm install -g npm@">=7 <8"
       - run: npm ci
+
       - name: Create Release
+        if: github.event_name == "push"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx auto shipit
+
+      - name: Check Release
+        if: github.event_name == "pull_request"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx auto pr-check
