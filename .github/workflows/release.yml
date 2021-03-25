@@ -22,14 +22,14 @@ jobs:
       - run: npm ci
 
       - name: Create Release
-        if: github.event_name == "push"
+        if: ${{ github.event_name == "push" }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx auto shipit
 
       - name: Check Release
-        if: github.event_name == "pull_request"
+        if: ${{ github.event_name == "pull_request" }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
