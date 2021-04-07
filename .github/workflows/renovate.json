@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "github>uship/renovate-config:js-lib"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@auto-it"],
+      "groupName": "Auto",
+      "groupSlug": "auto-it",
+      "minor": {
+        "stabilityDays": 7,
+        "automerge": false
+      },
+      "patch": {
+        "stabilityDays": 1,
+        "automerge": true
+      }
+    }
+  ]
+}
