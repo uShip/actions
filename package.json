@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "release": "auto shipit"
+    "release": "auto shipit",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,6 @@
     "terraform-output",
     "helpers"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "devDependencies": {
     "@auto-it/conventional-commits": "10.18.4",
     "@auto-it/git-tag": "10.18.4",
@@ -37,7 +33,7 @@
     "esm": "3.2.25",
     "execa": "4.1.0",
     "globby": "7.1.1",
-    "husky": "4.3.8",
+    "husky": "^6.0.0",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
     "typescript": "4.2.3"
