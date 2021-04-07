@@ -6,7 +6,7 @@
   "author": "uShip",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "got": "^11.8.2"
+    "@actions/core": "1.2.6",
+    "got": "11.8.2"
   }
 }
