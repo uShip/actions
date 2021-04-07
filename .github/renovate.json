@@ -1,5 +1,12 @@
 {
-  "extends": ["github>uship/renovate-config:js-lib"],
+  "extends": [
+    "config:base",
+    "config:js-lib",
+    ":dependencyDashboard",
+    ":automergeLinters",
+    ":automergeTesters",
+    ":automergeTypes"
+  ],
   "packageRules": [
     {
       "packagePatterns": ["^@auto-it"],
