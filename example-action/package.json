@@ -5,6 +5,9 @@
   "private": true,
   "author": "uShip",
   "license": "ISC",
+  "scripts": {
+    "build": "ncc build -m -s index.ts"
+  },
   "dependencies": {
     "@actions/core": "1.2.6",
     "got": "11.8.2"
