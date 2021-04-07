@@ -1,0 +1,13 @@
+{
+  "name": "@uship/actions-helpers",
+  "version": "1.0.0",
+  "private": true,
+  "author": "uShip",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.33"
+  }
+}
