@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "github>uship/renovate-config:js-lib"
-  ],
+  "extends": ["github>uship/renovate-config:js-lib"],
   "packageRules": [
     {
       "packagePatterns": ["^@auto-it"],
