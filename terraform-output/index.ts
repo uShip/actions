@@ -62,11 +62,13 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
     const prId = Number.parseInt(getInput("pr-id", { required: true }), 10);
 
+    const context = `terraform-output${getInput("context")}`;
+
     await createOrUpdatePRComment({
       owner,
       repo,
       prId,
-      context: "terraform-output",
+      context,
       body,
       octokit,
     });
