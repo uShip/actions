@@ -4,7 +4,7 @@
   "description": "GitHub Actions Monorepo for uShip",
   "private": true,
   "scripts": {
-    "build": "node -r esm scripts/build.js",
+    "build": "npm run build --workspaces --if-present",
     "release": "auto shipit"
   },
   "repository": {
@@ -26,12 +26,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{ts,js,json}": [
-      "npm run build --",
-      "prettier --write"
-    ]
   },
   "devDependencies": {
     "@auto-it/conventional-commits": "^10.18.4",
