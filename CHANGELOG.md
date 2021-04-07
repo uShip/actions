@@ -1,3 +1,15 @@
+# v0.3.1 (Wed Apr 07 2021)
+
+#### 🐛 Bug Fix
+
+- fix: add context to tile ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.3.0 (Wed Apr 07 2021)
 
 #### 🚀 Enhancement
