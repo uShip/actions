@@ -1,3 +1,15 @@
+# v0.3.2 (Wed Apr 07 2021)
+
+#### 🐛 Bug Fix
+
+- fix: add missing helpers package json and fix resolution ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.3.1 (Wed Apr 07 2021)
 
 #### 🐛 Bug Fix
