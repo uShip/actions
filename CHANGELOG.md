@@ -1,3 +1,19 @@
+# v0.4.0 (Wed Apr 07 2021)
+
+#### 🚀 Enhancement
+
+- feat: move to npm workspaces for building ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### 🐛 Bug Fix
+
+- fix: only print context id for title ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.3.2 (Wed Apr 07 2021)
 
 #### 🐛 Bug Fix
