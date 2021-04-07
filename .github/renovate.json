@@ -9,7 +9,7 @@
   ],
   "packageRules": [
     {
-      "packagePatterns": ["^@auto-it"],
+      "packagePatterns": ["^@auto-it", "^auto$"],
       "groupName": "Auto",
       "groupSlug": "auto-it",
       "minor": {
