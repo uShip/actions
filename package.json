@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@auto-it/conventional-commits": "10.18.4",
-    "@auto-it/git-tag": "10.18.4",
+    "@auto-it/git-tag": "10.24.1",
     "@auto-it/released": "10.18.4",
     "@types/node": "14.14.33",
     "@vercel/ncc": "0.27.0",
