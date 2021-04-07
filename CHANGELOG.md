@@ -1,3 +1,15 @@
+# v0.3.0 (Wed Apr 07 2021)
+
+#### 🚀 Enhancement
+
+- feat: add ability to disambig tf output [#4](https://github.com/uShip/actions/pull/4) ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.2.0 (Thu Mar 25 2021)
 
 #### 🚀 Enhancement
