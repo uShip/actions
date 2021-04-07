@@ -3,7 +3,7 @@
 This action assists in neatly formatting and presenting terraform plan, as well as other step output. Assumes you're using the `hashicorp/setup-terraform` action which wraps stdout and stderr into neat outputs.
 
 ```yml
-      - uses: uShip/actions/terraform-output@v0.2.0
+      - uses: uShip/actions/terraform-output@v0.3.0
         with:
           # JSON-ified step outcomes
           steps: ${{ toJSON(steps) }} # required
@@ -22,6 +22,10 @@ This action assists in neatly formatting and presenting terraform plan, as well 
 
           # The github token to use
           token: ${{ github.token }} # default
+
+          # A unique id to differentiate between multiple terraform-output actions
+          # Useful if a single pr may run multiple terraform plans
+          context: ""
 ```
 
 <details><summary><b>Example Usage</b></summary>
