@@ -35,6 +35,9 @@ inputs:
     description: Whether or not to fail on a previous step's failure
     default: "true"
     required: false
+  context:
+    description: A unique context id if you have multiple terraform output actions running.
+    required: false
 runs:
   using: node12
   main: dist/index.js
