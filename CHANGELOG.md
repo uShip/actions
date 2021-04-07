@@ -1,3 +1,23 @@
+# v0.4.1 (Wed Apr 07 2021)
+
+#### 🐛 Bug Fix
+
+- fix(deps): pin dependencies [#3](https://github.com/uShip/actions/pull/3) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### ⚠️ Pushed to `main`
+
+- chore(deps): add npm caching ([@RichiCoder1](https://github.com/RichiCoder1))
+- chore(deps): update lockfile to v2 ([@RichiCoder1](https://github.com/RichiCoder1))
+- chore(ci): fix infinite build ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.4.0 (Wed Apr 07 2021)
 
 #### 🚀 Enhancement
