@@ -18,6 +18,8 @@ async function run() {
       ["plan", planStep],
     ]);
 
+    const context = `terraform-output${getInput("context")}`;
+
     const now = new Intl.DateTimeFormat("en-US", {
       dateStyle: "medium",
       timeStyle: "long",
@@ -39,7 +41,7 @@ async function run() {
     }
 
     const body = `
-## Terraform Output
+## Terraform Output${context ? ` for ${context}` : ""}
 ${stepTable}
 
 <details><summary><b>Plan Output</b></summary>
@@ -61,8 +63,6 @@ ${(planStep?.outputs.stderr || "No Error").trim()}
 
     const [owner, repo] = process.env.GITHUB_REPOSITORY!.split("/");
     const prId = Number.parseInt(getInput("pr-id", { required: true }), 10);
-
-    const context = `terraform-output${getInput("context")}`;
 
     await createOrUpdatePRComment({
       owner,
