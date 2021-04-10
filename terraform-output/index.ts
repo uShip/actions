@@ -1,6 +1,7 @@
 import { getInput, setFailed } from "@actions/core";
 import { getOctokit } from "@actions/github";
 import { createOrUpdatePRComment } from "@uship/actions-helpers/comment";
+import { default as stripAnsi } from "strip-ansi";
 
 interface TfStep {
   outcome: "success" | "failure";
@@ -60,11 +61,11 @@ ${stepTable}
 
 <details><summary><b>Plan Output</b></summary>
 
-\`\`\`${planStep?.outputs.stdout || "\n"}\`\`\`
+\`\`\`${stripAnsi(planStep?.outputs.stdout || "\n")}\`\`\`
 
 stderr:
 \`\`\`
-${error.trim() || "N/A"}
+${stripAnsi(error.trim()) || "N/A"}
 \`\`\`
 </details>
 
@@ -92,7 +93,9 @@ ${error.trim() || "N/A"}
       tfSteps.forEach((result, name) => {
         if (result && result.outcome === "failure") {
           setFailed(
-            `Terraform step "${name}" failed. Err: ${result.outputs?.stderr}`
+            `Terraform step "${name}" failed. Err: ${stripAnsi(
+              result.outputs?.stderr ?? ""
+            )}`
           );
         }
       });

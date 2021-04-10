@@ -3,7 +3,7 @@
 This action assists in neatly formatting and presenting terraform plan, as well as other step output. Assumes you're using the `hashicorp/setup-terraform` action which wraps stdout and stderr into neat outputs.
 
 ```yml
-      - uses: uShip/actions/terraform-output@v0.4.2
+      - uses: uShip/actions/terraform-output@v0.5.0
         with:
           # JSON-ified step outcomes
           steps: ${{ toJSON(steps) }} # required
@@ -44,13 +44,13 @@ This action assists in neatly formatting and presenting terraform plan, as well 
 
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color
+        run: terraform validate
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color
+        run: terraform plan
 
-      - uses: uShip/actions/terraform-output@v0.4.2
+      - uses: uShip/actions/terraform-output@v0.5.0
         if: ${{ always() }}
         with:
           steps: ${{ toJSON(steps) }}
