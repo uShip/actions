@@ -41,8 +41,12 @@ async function run() {
     }
 
     const errorLogs = Object.values(tfSteps)
-      .filter((output) => output && "stderr" in output)
-      .map((output) => output["stderr"]);
+      .filter((output) => output && "exitcode" in output)
+      .map((output) => {
+        const out = ((output.stdout as string | null) ?? "").trim();
+        const err = ((output.stderr as string | null) ?? "").trim();
+        return `${out}${out != "" ? "\n" : ""}${err}`;
+      });
 
     const body = `
 ## Terraform Output${contextId ? ` for ${contextId}` : ""}
