@@ -31,10 +31,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx auto shipit -vv
+          npx auto shipit
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update Docs
           commit_options: "--no-verify --signoff"
-          file_pattern: "*.md"
