@@ -1,3 +1,19 @@
+# v0.5.6 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: print resulting json ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### ⚠️ Pushed to `main`
+
+- Update Docs ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.5 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
