@@ -31,9 +31,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx auto shipit -v
+          npx auto shipit
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update Changelog and README [skip ci]
-          commit_options: --amend
+          commit_message: Update Docs
+          commit_options: --no-verify --signoff
