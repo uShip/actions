@@ -6,7 +6,7 @@
     [
       "exec",
       {
-        "afterRelease": "jq -n 'env|.ARG_0|fromjson'"
+        "afterRelease": "export ACTION_VERSION=$(jq -n 'env|.ARG_0|fromjson|.newVersion' -r) && npm run bump-docs --workspaces --if-present"
       }
     ]
   ],
