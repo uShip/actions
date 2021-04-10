@@ -1,3 +1,15 @@
+# v0.4.6 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: the world is terrible and maybe this will work ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.4.5 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
