@@ -1,3 +1,15 @@
+# v0.4.4 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: actually filter exit code ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.4.3 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
