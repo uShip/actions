@@ -40,6 +40,10 @@ async function run() {
       }   |`;
     }
 
+    const errorLogs = Object.values(tfSteps)
+      .filter((output) => output && "stderr" in output)
+      .map((output) => output["stderr"]);
+
     const body = `
 ## Terraform Output${contextId ? ` for ${contextId}` : ""}
 ${stepTable}
@@ -50,7 +54,7 @@ ${stepTable}
 
 stderr:
 \`\`\`
-${(planStep?.outputs.stderr || "No Error").trim()}
+${(errorLogs.length > 0 ? errorLogs.join("\n") : "N/A").trim()}
 \`\`\`
 </details>
 
