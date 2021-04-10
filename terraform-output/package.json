@@ -5,7 +5,8 @@
   "author": "uShip",
   "license": "ISC",
   "scripts": {
-    "build": "ncc build -m -s index.ts"
+    "build": "ncc build -m -s index.ts",
+    "bump-docs": "sed -i \"s/terraform-output@v[0-9]*\\.[0-9]*\\.[0-9]*/terraform-output@$ACTION_VERSION/g\" README.md"
   },
   "dependencies": {
     "@actions/core": "1.2.6",

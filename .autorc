@@ -2,7 +2,13 @@
   "plugins": [
     "git-tag",
     "conventional-commits",
-    "released"
+    "released",
+    [
+      "exec",
+      {
+        "afterRelease": "ACTION_VERSION=\"$(echo \"$ARG_0\" | jq '.nextVersion' -r)\" npm run bump-docs --workspaces --if-present"
+      }
+    ]
   ],
   "owner": "uShip",
   "repo": "actions",
