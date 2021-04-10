@@ -1,3 +1,15 @@
+# v0.5.1 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: automatically bump docs version on new release ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.0 (Sat Apr 10 2021)
 
 #### 🚀 Enhancement
