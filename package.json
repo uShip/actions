@@ -4,7 +4,6 @@
   "description": "GitHub Actions Monorepo for uShip",
   "private": true,
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
     "release": "auto shipit",
     "prepare": "husky install"
   },
