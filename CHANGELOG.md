@@ -1,3 +1,15 @@
+# v0.5.4 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: make logs _very_ verbose ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.3 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
