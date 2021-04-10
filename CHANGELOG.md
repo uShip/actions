@@ -1,3 +1,15 @@
+# v0.5.7 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: actually fix version ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.6 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
