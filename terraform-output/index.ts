@@ -2,6 +2,15 @@ import { getInput, setFailed } from "@actions/core";
 import { getOctokit } from "@actions/github";
 import { createOrUpdatePRComment } from "@uship/actions-helpers/comment";
 
+interface TfStep {
+  outcome: "success" | "failure";
+  outputs?: {
+    exitcode: number;
+    stdout: string;
+    stderr: string;
+  };
+}
+
 async function run() {
   try {
     const token = getInput("token", { required: true });
@@ -11,7 +20,7 @@ async function run() {
 
     const planStep = steps[getInput("plan") || "plan"];
 
-    const tfSteps = new Map([
+    const tfSteps = new Map<string, TfStep | undefined>([
       ["fmt -check", steps[getInput("fmt") || "fmt"]],
       ["init", steps[getInput("init") || "init"]],
       ["validate", steps[getInput("validate") || "validate"]],
@@ -30,6 +39,7 @@ async function run() {
 | cmd | result |
 |----|----|`;
 
+    let error = "";
     for (const [name, result] of tfSteps) {
       if (!result) {
         continue;
@@ -38,11 +48,11 @@ async function run() {
       stepTable += `\n| \`${name}\` |  ${
         result?.outcome == "success" ? "✔" : "✖"
       }   |`;
-    }
 
-    const errorLogs = Object.values(tfSteps)
-      .filter((step) => step && step.outcome === "failure")
-      .map((step) => step.outputs.stderr);
+      if (result?.outcome === "failure") {
+        error += result.outputs?.stderr;
+      }
+    }
 
     const body = `
 ## Terraform Output${contextId ? ` for ${contextId}` : ""}
@@ -54,7 +64,7 @@ ${stepTable}
 
 stderr:
 \`\`\`
-${(errorLogs.length > 0 ? errorLogs.join("\n") : "N/A").trim()}
+${error.trim() || "N/A"}
 \`\`\`
 </details>
 
@@ -82,7 +92,7 @@ ${(errorLogs.length > 0 ? errorLogs.join("\n") : "N/A").trim()}
       tfSteps.forEach((result, name) => {
         if (result && result.outcome === "failure") {
           setFailed(
-            `Terraform step "${name}" failed. Err: ${result.outputs.stderr}`
+            `Terraform step "${name}" failed. Err: ${result.outputs?.stderr}`
           );
         }
       });
