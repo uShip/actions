@@ -1,3 +1,15 @@
+# v0.5.0 (Sat Apr 10 2021)
+
+#### 🚀 Enhancement
+
+- feat: automatically strip ansi from terraform output ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.4.6 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
