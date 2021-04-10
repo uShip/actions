@@ -37,5 +37,3 @@ jobs:
         with:
           commit_message: Update Changelog and README [skip ci]
           commit_options: --amend
-          file_pattern: >-
-            '*.md'
