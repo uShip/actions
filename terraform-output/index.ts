@@ -41,7 +41,10 @@ async function run() {
     }
 
     const errorLogs = Object.values(tfSteps)
-      .filter((output) => output && "exitcode" in output)
+      .filter(
+        (output) =>
+          output && "exitcode" in output && Number(output.exitcode) !== 0
+      )
       .map((output) => {
         const out = ((output.stdout as string | null) ?? "").trim();
         const err = ((output.stderr as string | null) ?? "").trim();
