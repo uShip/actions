@@ -1,3 +1,19 @@
+# v0.4.3 (Sat Apr 10 2021)
+
+#### 🐛 Bug Fix
+
+- fix: combine out and err logs for non-zero steps ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### ⚠️ Pushed to `main`
+
+- chore: update docs ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.4.2 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
