@@ -1,3 +1,25 @@
+# v0.5.11 (Tue Apr 13 2021)
+
+#### 🐛 Bug Fix
+
+- fix(deps): update dependency @actions/core to v1.2.7 [#18](https://github.com/uShip/actions/pull/18) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- chore(deps): update auto to v10.25.0 [#17](https://github.com/uShip/actions/pull/17) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- chore(deps): update dependency @vercel/ncc to v0.28.3 [#16](https://github.com/uShip/actions/pull/16) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### ⚠️ Pushed to `main`
+
+- chore: update build command ([@RichiCoder1](https://github.com/RichiCoder1))
+- chore: remove top level build ([@RichiCoder1](https://github.com/RichiCoder1))
+- chore: was worth a try ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.5.10 (Sat Apr 10 2021)
 
 #### 🐛 Bug Fix
