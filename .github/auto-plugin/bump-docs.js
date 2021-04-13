@@ -20,23 +20,24 @@ module.exports = class LatestTagPlugin {
         }
 
         const [parent] = dir.split("/");
-
         const { major } = parse(newVersion);
-
-        const mdContents = await readFile(filePath);
-        const md = mdContents.toString();
-        const regex = new RegExp(
-          `uShip\\/actions\\/${parent}@v[0-9]+(\\.[0-9]+){0,2}`,
-          "gi"
-        );
-        const updatedText = md.replace(
-          regex,
-          `uShip/actions/${parent}@v${major}`
-        );
-        if (md !== updatedText) {
-          await writeFile(filePath, md);
-        }
+        await bumpDocsVersion(filePath, parent, `v${major}`);
       }
     });
   }
 };
+
+async function bumpDocsVersion(filePath, action, version) {
+  console.log({ filePath });
+  const mdContents = await readFile(filePath);
+  const md = mdContents.toString();
+  const regex = new RegExp(
+    `uShip\\/actions\\/${action}@v[0-9]+(\\.[0-9]+){0,2}`,
+    "gi"
+  );
+  const updatedText = md.replace(regex, `uShip/actions/${action}@${version}`);
+
+  if (md !== updatedText) {
+    await writeFile(filePath, updatedText);
+  }
+}
