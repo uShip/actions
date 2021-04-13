@@ -3,12 +3,8 @@
     "git-tag",
     "conventional-commits",
     "released",
-    [
-      "exec",
-      {
-        "afterRelease": "export ACTION_VERSION=$(jq -n 'env|.ARG_0|fromjson|.newVersion' -r) && npm run bump-docs --workspaces --if-present"
-      }
-    ]
+    "./.github/auto-plugin/github-actions.js",
+    "./.github/auto-plugin/bump-docs.js",
   ],
   "owner": "uShip",
   "repo": "actions",

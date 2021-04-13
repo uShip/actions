@@ -8,7 +8,7 @@ module.exports = {
       .some((file) =>
         packageJson.workspaces.some((workspace) => file.startsWith(workspace))
       )
-      ? ["npm run build", "git add **/dist/**"]
+      ? ["npm run build --workspaces --if-present", "git add **/dist/**"]
       : [],
   "**/*!(-lock).{json,js,ts,yml}": (files) => {
     const nonDist = files.filter((file) => !file.includes("dist/"));

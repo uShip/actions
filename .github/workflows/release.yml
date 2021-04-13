@@ -27,6 +27,7 @@ jobs:
       - run: npm ci
 
       - name: Create Release
+        id: release
         if: ${{ github.event_name == 'push' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,3 +38,11 @@ jobs:
         with:
           commit_message: Update Docs
           commit_options: --no-verify --signoff
+
+      - name: Update major tag
+        if: steps.release.outputs.hasNewRelease
+        uses: EndBug/latest-tag@v1
+        with:
+          tag-name: v${{ steps.release.outputs.newMajorVersion }}
+          description: |
+            ${{ steps.release.outputs.releaseNotes }}
