@@ -1,3 +1,15 @@
+# v1.0.0 (Tue Apr 13 2021)
+
+#### 💥 Breaking Change
+
+- feat(ci): fix docs rewrite and release v1 ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.12 (Tue Apr 13 2021)
 
 #### 🐛 Bug Fix
