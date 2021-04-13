@@ -4,6 +4,22 @@
 
 - feat(ci): fix docs rewrite and release v1 ([@RichiCoder1](https://github.com/RichiCoder1))
 
+#### 🐛 Bug Fix
+
+- fix: don't considering non-semver tags when getting latest ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
+# v1.0.0 (Tue Apr 13 2021)
+
+#### 💥 Breaking Change
+
+- feat(ci): fix docs rewrite and release v1 ([@RichiCoder1](https://github.com/RichiCoder1))
+
 #### Authors: 1
 
 - Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
