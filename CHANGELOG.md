@@ -1,3 +1,19 @@
+# v0.5.12 (Tue Apr 13 2021)
+
+#### 🐛 Bug Fix
+
+- fix(ci): retool to use scripts and add latest tag ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### ⚠️ Pushed to `main`
+
+- Update Docs ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v0.5.11 (Tue Apr 13 2021)
 
 #### 🐛 Bug Fix
