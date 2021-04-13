@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "release": "auto shipit",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
