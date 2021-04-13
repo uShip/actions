@@ -1,0 +1,13 @@
+diff --git a/node_modules/@auto-it/core/dist/git.js b/node_modules/@auto-it/core/dist/git.js
+index 5abb08c..07f6c3a 100644
+--- a/node_modules/@auto-it/core/dist/git.js
++++ b/node_modules/@auto-it/core/dist/git.js
+@@ -606,7 +606,7 @@ class Git {
+     }
+     /** Get the latest tag in the git tree */
+     async getLatestTagInBranch(since) {
+-        return exec_promise_1.default("git", ["describe", "--tags", "--abbrev=0", since]);
++        return exec_promise_1.default("git", ["describe", "--tags", "--abbrev=0", "--match=v*.*.*", since]);
+     }
+     /** Get the tag before latest in the git tree */
+     async getPreviousTagInBranch() {
