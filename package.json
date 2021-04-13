@@ -23,12 +23,12 @@
     "helpers"
   ],
   "devDependencies": {
-    "@auto-it/conventional-commits": "10.24.3",
-    "@auto-it/git-tag": "10.24.3",
-    "@auto-it/released": "10.24.3",
+    "@auto-it/conventional-commits": "10.25.0",
+    "@auto-it/git-tag": "10.25.0",
+    "@auto-it/released": "10.25.0",
     "@types/node": "14.14.37",
     "@vercel/ncc": "0.28.3",
-    "auto": "10.24.3",
+    "auto": "10.25.0",
     "execa": "5.0.0",
     "globby": "11.0.3",
     "husky": "6.0.0",
