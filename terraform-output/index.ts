@@ -52,7 +52,7 @@ async function run() {
           "No changes. Infrastructure is up-to-date."
         );
         if (hasChanges) {
-          const counts = /Plan: (?<add>\d+) to add, (?<change>\d+) to change, (?<destory>\d+) to destroy/.exec(
+          const counts = /Plan: (?<add>\d+) to add, (?<change>\d+) to change, (?<destroy>\d+) to destroy/.exec(
             noAscii
           );
           if (counts) {
