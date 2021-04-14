@@ -5,7 +5,9 @@
     ":dependencyDashboard",
     ":automergeLinters",
     ":automergeTesters",
-    ":automergeTypes"
+    ":automergeTypes",
+    ":maintainLockFilesWeekly",
+    ":preserveSemverRanges"
   ],
   "packageRules": [
     {

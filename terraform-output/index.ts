@@ -46,9 +46,29 @@ async function run() {
         continue;
       }
 
-      stepTable += `\n| \`${name}\` |  ${
-        result?.outcome == "success" ? "✔" : "✖"
-      }   |`;
+      if (name === "plan" && result?.outcome == "success") {
+        const noAscii = stripAnsi(result.outputs!.stdout);
+        const hasChanges = !noAscii.includes(
+          "No changes. Infrastructure is up-to-date."
+        );
+        if (hasChanges) {
+          const counts = /Plan: (?<add>\d+) to add, (?<change>\d+) to change, (?<destory>\d+) to destroy/.exec(
+            noAscii
+          );
+          if (counts) {
+            const { add, change, destroy } = counts.groups!;
+            stepTable += `\n| \`${name}\` | ${add}+, ${change}~, ${destroy}- |`;
+          } else {
+            stepTable += `\n| \`${name}\` | 💬 |`;
+          }
+        } else {
+          stepTable += `\n| \`${name}\` | - |`;
+        }
+      } else {
+        stepTable += `\n| \`${name}\` |  ${
+          result?.outcome == "success" ? "✔" : "✖"
+        }   |`;
+      }
 
       if (result?.outcome === "failure") {
         error += result.outputs?.stderr;
