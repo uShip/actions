@@ -4,6 +4,9 @@
   "private": true,
   "author": "uShip",
   "license": "ISC",
+  "scripts": {
+    "build": "exit 0"
+  },
   "dependencies": {
     "@actions/github": "4.0.0"
   },
