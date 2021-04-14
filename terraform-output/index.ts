@@ -57,13 +57,13 @@ async function run() {
           );
           if (counts) {
             const { add, change, destroy } = counts.groups!;
-            const countText = [
-              ["+", Number(add)],
-              ["~", Number(change)],
-              ["-", Number(destroy)],
-            ]
+            const countText = ([
+              ["+", Number.parseInt(add, 0)],
+              ["~", Number.parseInt(change, 0)],
+              ["-", Number.parseInt(destroy, 0)],
+            ] as const)
               .filter(([_, count]) => count > 0)
-              .map((icon, count) => `${icon}${count}`)
+              .map(([icon, count]) => `${icon}${count}`)
               .join(", ");
             stepTable += `\n| \`${name}\` | ${countText} |`;
           } else {
