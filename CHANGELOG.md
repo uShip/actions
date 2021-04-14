@@ -1,3 +1,25 @@
+# v1.1.0 (Wed Apr 14 2021)
+
+#### 🚀 Enhancement
+
+- feat: parse plan counts to pretty-print changes ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### 🐛 Bug Fix
+
+- chore(deps): pin dependencies [#19](https://github.com/uShip/actions/pull/19) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### ⚠️ Pushed to `main`
+
+- Update Docs ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v1.0.0 (Tue Apr 13 2021)
 
 #### 💥 Breaking Change
