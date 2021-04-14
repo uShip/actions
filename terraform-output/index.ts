@@ -58,9 +58,9 @@ async function run() {
           if (counts) {
             const { add, change, destroy } = counts.groups!;
             const countText = ([
-              ["+", Number.parseInt(add, 0)],
-              ["~", Number.parseInt(change, 0)],
-              ["-", Number.parseInt(destroy, 0)],
+              ["+", Number.parseInt(add, 10)],
+              ["~", Number.parseInt(change, 10)],
+              ["-", Number.parseInt(destroy, 10)],
             ] as const)
               .filter(([_, count]) => count > 0)
               .map(([icon, count]) => `${icon}${count}`)
@@ -70,7 +70,7 @@ async function run() {
             stepTable += `\n| \`${name}\` | 💬 |`;
           }
         } else {
-          stepTable += `\n| \`${name}\` | - |`;
+          stepTable += `\n| \`${name}\` | ➖ |`;
         }
       } else {
         stepTable += `\n| \`${name}\` |  ${
