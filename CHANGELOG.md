@@ -1,3 +1,15 @@
+# v1.1.5 (Wed Apr 14 2021)
+
+#### 🐛 Bug Fix
+
+- fix: because emojis are always better ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v1.1.4 (Wed Apr 14 2021)
 
 #### 🐛 Bug Fix
