@@ -51,6 +51,7 @@ async function run() {
         const hasChanges = !noAscii.includes(
           "No changes. Infrastructure is up-to-date."
         );
+        const hasWarnings = noAscii.includes("Warning");
         if (hasChanges) {
           const counts = /Plan: (?<add>\d+) to add, (?<change>\d+) to change, (?<destroy>\d+) to destroy/.exec(
             noAscii
@@ -65,12 +66,14 @@ async function run() {
               .filter(([_, count]) => count > 0)
               .map(([icon, count]) => `${icon}${count}`)
               .join(", ");
-            stepTable += `\n| \`${name}\` | ${countText} |`;
+            stepTable += `\n| \`${name}\` | ${countText}${
+              hasWarnings ? "*" : ""
+            } |`;
           } else {
-            stepTable += `\n| \`${name}\` | 💬 |`;
+            stepTable += `\n| \`${name}\` | 💬${hasWarnings ? "*" : ""} |`;
           }
         } else {
-          stepTable += `\n| \`${name}\` | ➖ |`;
+          stepTable += `\n| \`${name}\` | ➖${hasWarnings ? "*" : ""} |`;
         }
       } else {
         stepTable += `\n| \`${name}\` |  ${
