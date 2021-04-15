@@ -1,3 +1,15 @@
+# v1.1.6 (Thu Apr 15 2021)
+
+#### 🐛 Bug Fix
+
+- fix: show asterisk if there are warnings ([@RichiCoder1](https://github.com/RichiCoder1))
+
+#### Authors: 1
+
+- Richard Simpson ([@RichiCoder1](https://github.com/RichiCoder1))
+
+---
+
 # v1.1.5 (Wed Apr 14 2021)
 
 #### 🐛 Bug Fix
