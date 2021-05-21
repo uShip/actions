@@ -24,7 +24,7 @@
     "helpers"
   ],
   "devDependencies": {
-    "@actions/core": "1.2.7",
+    "@actions/core": "1.3.0",
     "@auto-it/conventional-commits": "10.25.0",
     "@auto-it/exec": "^10.25.0",
     "@auto-it/git-tag": "10.25.0",
